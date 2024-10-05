@@ -1,6 +1,6 @@
-# empleados
+# Empleados
 
-Descripciín basisca de su Proyecto de POO ...
+Proyecto de empleados para probar la programacion con TDD, proyecto simple con pruebas basicas
 
 # Autores
 
