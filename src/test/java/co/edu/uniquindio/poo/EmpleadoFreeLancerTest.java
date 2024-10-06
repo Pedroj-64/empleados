@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 
 public class EmpleadoFreeLancerTest {
-    private Logger LOG=Logger.getLogger(EmpleadoFreeLancer.class.getName());
+    private Logger LOG=Logger.getLogger(EmpleadoFreeLancerTest.class.getName());
 
     @Test 
     public void testCalcularSalario(){
@@ -18,8 +18,9 @@ public class EmpleadoFreeLancerTest {
         empresa.adicionarProyectoCompletadosFreeLancers(empleadoFreeLancer,10);
         empresa.definirPagaPorProyecto();
         empresa.calcularSalarios();
+        double esperado=empresa.getPagaPorProyectoTerceros()*empleadoFreeLancer.getProyectosCompletados();
 
-        assertEquals(empleadoFreeLancer.calcularSalario(), empleadoFreeLancer.getSalario());
+        assertEquals(esperado, empleadoFreeLancer.getSalario());
 
         LOG.info("Finalizando prueba para saber correcto funcionamiento del metodo calcular salario");
     }

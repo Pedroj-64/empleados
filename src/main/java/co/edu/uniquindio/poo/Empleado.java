@@ -30,7 +30,7 @@ public abstract class Empleado extends Persona {
 
     @Override
     public String toString() {
-        return "La persona: " + super.toString() +" [idEmpleado=" + idEmpleado + ", con  salario=" + salario + "]";
+        return "La persona: " + super.toString() +" [identificado con idEmpleado=" + idEmpleado + ", con  salario=" + salario + "]" + " Es un ";
     }
 
 }
