@@ -6,6 +6,9 @@ package co.edu.uniquindio.poo;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        EmpleadoFreeLancer empleadito= new EmpleadoFreeLancer(null, null, 0, 0, 0, 0, 0);
+        System.out.println(empleadito);
+
+
     }
 }
