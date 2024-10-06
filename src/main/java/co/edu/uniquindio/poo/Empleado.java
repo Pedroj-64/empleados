@@ -3,13 +3,11 @@ package co.edu.uniquindio.poo;
 public abstract class Empleado extends Persona {
 
     private int idEmpleado;
-    private double salario;
+    private  double salario;
 
-    public Empleado(String nombre, String apellido, int telefono, int edad, int cedula, int idEmpleado,double salario) {
+    public Empleado(String nombre, String apellido, long telefono, int edad, long cedula, int idEmpleado) {
         super(nombre, apellido, telefono, edad, cedula);
         this.idEmpleado = idEmpleado;
-        this.salario=salario;
-
     }
 
     public int getIdEmpleado() {
@@ -32,7 +30,7 @@ public abstract class Empleado extends Persona {
 
     @Override
     public String toString() {
-        return "Empleado [idEmpleado=" + idEmpleado + ", con  salario=" + salario + "]";
+        return "La persona: " + super.toString() +" [idEmpleado=" + idEmpleado + ", con  salario=" + salario + "]";
     }
 
 }

@@ -2,16 +2,11 @@ package co.edu.uniquindio.poo;
 
 public class EmpleadoTiempoCompleto extends Empleado {
     private double salarioMensual;
+    private double salario;
 
-    public EmpleadoTiempoCompleto(String nombre, String apellido, int telefono, int edad, int cedula, int idEmpleado,double salario) {
-        super(nombre, apellido, telefono, edad, cedula, idEmpleado,salario);
+    public EmpleadoTiempoCompleto(String nombre, String apellido, long telefono, int edad, long cedula, int idEmpleado) {
+        super(nombre, apellido, telefono, edad, cedula, idEmpleado);
 
-    }
-
-    @Override
-    public double calcularSalario() {
-        double salario = salarioMensual;
-        return salario;
     }
 
     public double getSalarioMensual() {
@@ -22,9 +17,23 @@ public class EmpleadoTiempoCompleto extends Empleado {
         this.salarioMensual = salarioMensual;
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    @Override
+    public double calcularSalario() {
+        this.salario=salarioMensual;
+        return salario;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + " es un  " + "EmpleadoTiempoCompleto [salarioMensual=" + salarioMensual + "]";
+        return super.toString() +" EmpleadoTiempoCompleto [salarioMensual=" + salarioMensual + ", salario=" + salario + "]";
     }
 
 }

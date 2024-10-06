@@ -6,9 +6,8 @@ package co.edu.uniquindio.poo;
  */
 public class App {
     public static void main(String[] args) {
-        EmpleadoFreeLancer empleadito= new EmpleadoFreeLancer(null, null, 0, 0, 0, 0, 0);
-        System.out.println(empleadito);
-
+    EmpleadoPorHora empleado=new EmpleadoPorHora(null, null, 0, 0, 0, 0);
+    System.out.println(empleado);
 
     }
 }

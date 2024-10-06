@@ -3,9 +3,10 @@ package co.edu.uniquindio.poo;
 public class EmpleadoPorHora extends Empleado {
     private int horasTrabajadas;
     private double salarioPorHora;
+    private double salario;
 
-    public EmpleadoPorHora(String nombre, String apellido, int telefono, int edad, int cedula, int idEmpleado,double salario) {
-        super(nombre, apellido, telefono, edad, cedula, idEmpleado,salario);
+    public EmpleadoPorHora(String nombre, String apellido, long telefono, int edad, long cedula, int idEmpleado) {
+        super(nombre, apellido, telefono, edad, cedula, idEmpleado);
     }
 
     public int getHorasTrabajadas() {
@@ -24,16 +25,25 @@ public class EmpleadoPorHora extends Empleado {
         this.salarioPorHora = salarioPorHora;
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
     @Override
     public double calcularSalario() {
-        double salario = horasTrabajadas * salarioPorHora;
+        double salarioFinal = horasTrabajadas * salarioPorHora;
+        this.salario=salarioFinal;
         return salario;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " es un "+ "EmpleadoPorHora [horasTrabajadas=" + horasTrabajadas + ", salarioPorHora="
-                + salarioPorHora + "]";
+        return super.toString()+" EmpleadoPorHora [horasTrabajadas=" + horasTrabajadas + ", salarioPorHora=" + salarioPorHora
+                + ", salario=" + salario + "]";
     }
 
 }

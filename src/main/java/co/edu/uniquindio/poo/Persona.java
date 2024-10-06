@@ -4,11 +4,11 @@ public abstract class Persona {
 
     private String nombre;
     private String apellido;
-    private int telefono;
+    private long telefono;
     private int edad;
-    private int cedula;
+    private long cedula;
 
-    public Persona(String nombre, String apellido, int telefono, int edad, int cedula) {
+    public Persona(String nombre, String apellido, long telefono, int edad, long cedula) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -32,11 +32,11 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
@@ -48,11 +48,11 @@ public abstract class Persona {
         this.edad = edad;
     }
 
-    public int getCedula() {
+    public long getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(long cedula) {
         this.cedula = cedula;
     }
 

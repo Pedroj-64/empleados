@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class Empresa {
 
@@ -13,8 +14,15 @@ public class Empresa {
     private double pagaMensual;
     private double pagaPorProyectoTerceros;
 
-    public Empresa(String nombre) {
+    public Empresa(String nombre, double pagaPorHora, double pagaMensual, double pagaPorProyectoTerceros) {
         this.nombre = nombre;
+        this.pagaPorHora = pagaPorHora;
+        this.pagaMensual = pagaMensual;
+        this.pagaPorProyectoTerceros = pagaPorProyectoTerceros;
+        empleadosFreelancers=new LinkedList<>();
+        empleadosPorHoras=new LinkedList<>();
+        empleadosTiempoCompletos=new LinkedList<>();
+        empleados=new LinkedList<>();
     }
 
     public String getNombre() {
@@ -56,7 +64,7 @@ public class Empresa {
     public void setEmpleados(Collection<Empleado> empleados) {
         this.empleados = empleados;
     }
-    
+
     public double getPagoPorHora() {
         return pagaPorHora;
     }
@@ -81,16 +89,17 @@ public class Empresa {
         this.pagaPorProyectoTerceros = pagaPorProyectoTerceros;
     }
 
-    public boolean existeEmpleado(Empleado empleado){
-        boolean banderilla=false;
-        for(Empleado empleado2 : empleados){
-            if(empleado2.equals(empleado)){
-                banderilla=true;
+    public boolean existeEmpleado(Empleado empleado) {
+        boolean banderilla = false;
+        for (Empleado empleado2 : empleados) {
+            if (empleado2.equals(empleado)) {
+                banderilla = true;
                 break;
             }
         }
         return banderilla;
     }
+
     public void agregarEmpleadoPorHoras(EmpleadoPorHora empleadoPorHora){
         if(!existeEmpleado(empleadoPorHora)){
             empleadosPorHoras.add(empleadoPorHora);
@@ -103,6 +112,7 @@ public class Empresa {
             empleados.add(empleadoTiempoCompleto);
         }
     }
+
     public void agregarEmpleadoFreeLancer(EmpleadoFreeLancer empleadoFreeLancer){
         if(!existeEmpleado(empleadoFreeLancer)){
             empleadosFreelancers.add(empleadoFreeLancer);
@@ -110,41 +120,39 @@ public class Empresa {
         }
     }
 
-    public void definirPagaPorHora(){
-        for(EmpleadoPorHora empleadoPorHora: empleadosPorHoras){
+    public void definirPagaPorHora() {
+        for (EmpleadoPorHora empleadoPorHora : empleadosPorHoras) {
             empleadoPorHora.setSalarioPorHora(pagaPorHora);
         }
     }
-    public void definirPagaPorProyecto(){
-        for(EmpleadoFreeLancer empleadoFreeLancer: empleadosFreelancers){
+
+    public void definirPagaPorProyecto() {
+        for (EmpleadoFreeLancer empleadoFreeLancer : empleadosFreelancers) {
             empleadoFreeLancer.setPagoPorProyecto(pagaPorProyectoTerceros);
         }
     }
 
-    public void definirPagaMensualEmpresa(){
-        for(EmpleadoTiempoCompleto empleadoTiempoCompleto: empleadosTiempoCompletos){
-           empleadoTiempoCompleto.setSalarioMensual(pagaMensual);
+    public void definirPagaMensualEmpresa() {
+        for (EmpleadoTiempoCompleto empleadoTiempoCompleto : empleadosTiempoCompletos) {
+            empleadoTiempoCompleto.setSalarioMensual(pagaMensual);
         }
     }
 
-    public void adicionarProyectoCompletadosFreeLancers(EmpleadoFreeLancer empleadoFreeLancer, int proyectosCompletados){
+    public void adicionarProyectoCompletadosFreeLancers(EmpleadoFreeLancer empleadoFreeLancer,
+            int proyectosCompletados) {
         empleadoFreeLancer.setProyectosCompletados(proyectosCompletados);
     }
-    
-    public void adiccionarHorastrabajadasEmpleados(EmpleadoPorHora empleadoPorHora, int horasTrabajadas){
+
+    public void adiccionarHorastrabajadasEmpleados(EmpleadoPorHora empleadoPorHora, int horasTrabajadas) {
         empleadoPorHora.setHorasTrabajadas(horasTrabajadas);
     }
 
-    public void calcularSalarios(){
-        for(Empleado empleado : empleados){
-            double salario= empleado.calcularSalario();
+    public void calcularSalarios() {
+        for (Empleado empleado : empleados) {
+            double salario = empleado.calcularSalario();
             empleado.setSalario(salario);
         }
     }
-
-
-    
-    
 
     @Override
     public String toString() {
@@ -152,9 +160,5 @@ public class Empresa {
                 + empleadosPorHoras + ", empleadosTiempoCompletos=" + empleadosTiempoCompletos + ", empleados="
                 + empleados + "]";
     }
-
-
-
-    
 
 }
